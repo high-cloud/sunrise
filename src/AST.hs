@@ -1,10 +1,11 @@
 module AST where
 
+import CommonDef
 
 data Expr a
   = EVar Name -- Variables
   | ENum Int  -- Numbers
-  | EConstr Int Int -- Constructor
+  | EConstr Int Int -- Constructor tag arity
   | EAp (Expr a) (Expr a) -- Applications
   | ELet
       IsRec    -- True for recuresive
@@ -19,7 +20,6 @@ data Expr a
 type Alter a = (Int, [a], Expr a)
 type CoreAlter = Alter Name
 
-type Name = String
 type CoreExpr = Expr Name
 
 type IsRec = Bool
@@ -33,5 +33,6 @@ bindersOf defns = [name | (name,rhs) <- defns]
 type Program a = [ScDefns a]
 type CoreProgram = Program Name
 
+-- | supercombnators
 type ScDefns a = (Name, [a], Expr a)
 type CoreScDefn = ScDefns Name
