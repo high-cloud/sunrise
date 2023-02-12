@@ -5,7 +5,7 @@ import CommonDef
 data Expr a
   = EVar Name -- Variables
   | ENum Int  -- Numbers
-  | EConstr Int Int -- Constructor tag arity
+  | EConstr Int Int -- Constructor: tag arity
   | EAp (Expr a) (Expr a) -- Applications
   | ELet
       IsRec    -- True for recuresive
