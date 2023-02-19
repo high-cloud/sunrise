@@ -36,3 +36,4 @@ type CoreProgram = Program Name
 -- | supercombnators
 type ScDefns a = (Name, [a], Expr a)
 type CoreScDefn = ScDefns Name
+
