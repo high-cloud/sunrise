@@ -25,11 +25,9 @@ source-repository head
 
 library
   exposed-modules:
-      AST
-      CommonDef
-      Gm
       Lib
       STG.CodeGen
+      STG.LlvmTest
       STG.Syntax
   other-modules:
       Paths_sunrise
@@ -38,7 +36,10 @@ library
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
       base >=4.7 && <5
+    , containers
     , llvm-hs-pure
+    , mtl
+    , text
   default-language: Haskell2010
 
 executable sunrise-exe
@@ -50,8 +51,11 @@ executable sunrise-exe
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , containers
     , llvm-hs-pure
+    , mtl
     , sunrise
+    , text
   default-language: Haskell2010
 
 test-suite sunrise-test
@@ -64,6 +68,9 @@ test-suite sunrise-test
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , containers
     , llvm-hs-pure
+    , mtl
     , sunrise
+    , text
   default-language: Haskell2010
